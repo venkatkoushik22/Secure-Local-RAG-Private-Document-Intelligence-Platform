@@ -1,74 +1,68 @@
-# RAG using Llama3, Langchain and ChromaDB
-RAG using Llama3, Langchain and ChromaDB
+Secure-Local-RAG: Private Document Intelligence Platform
+Secure-Local-RAG is a privacy-centric Retrieval-Augmented Generation (RAG) system built to provide technical intelligence over sensitive documents and source code. By leveraging local LLMs and a persistent vector store, the system ensures that no data ever leaves the host machine.
 
-## Objective 🎯
+Technical Architecture
+The system follows a standard RAG pipeline but is optimized for local performance and data sovereignty:
 
-This project utilizes Llama3 Langchain and ChromaDB to establish a Retrieval Augmented Generation (RAG) system. This system empowers you to ask questions about your documents, even if the information wasn't included in the training data for the Large Language Model (LLM). Retrieval Augmented Generation works by first performing a retrieval step when presented with a question. This step fetches relevant documents from a special vector database, where the documents have been indexed.
+Ingestion Pipeline: Processes multi-format files (PDF, Python, Text) using custom loaders.
 
-### Definitions 📝
+Embedding Engine: Utilizes Nomic-Embed-Text to transform raw text into high-dimensional vectors.
 
-* **LLM:** Large Language Model
-* **Llama3:** LLM developed by Meta
-* **Langchain:** Framework designed to streamline the creation of applications utilizing LLMs
-* **Vector database:** Database that organizes data using high-dimensional vectors
-* **ChromaDB:** Vector database
-* **RAG:** Retrieval Augmented Generation (see below for more details)
+Vector Store: Employs ChromaDB for low-latency retrieval and long-term data persistence.
 
-### Model Details 
+Inference Engine: Uses Meta’s Llama 3 (8B) via the Ollama framework for context-aware response generation.
 
-* **Model:** Llama 3
-* **Variation:** 8b-chat-hf (8b: 8 Billion parameters; hf: HuggingFace)
-* **Version:** V1
-* **Framework:** Transformers
+Core Capabilities
+Zero Data Leakage: Designed for high-security environments where cloud-based AI is prohibited. All processing is 100% on-device.
 
-The pre-trained Llama3 model is fine-tuned with over 15 Trillion tokens and boasts 8 to 70 Billion parameters, making it one of the most powerful open-source models available. It offers significant advancements over the previous Llama2 model.
+Persistent Memory: The system caches indexed snippets in a local chroma_db directory, allowing for near-instant startup after the initial ingestion.
 
+Codebase Analysis: Optimized for technical documentation and source code, allowing developers to query complex logic within their own repositories.
 
-## Conclusions 
+Semantic Retrieval: Goes beyond keyword matching to understand the intent and context of user queries.
 
-This project successfully implemented a Retrieval Augmented Generation (RAG) solution by leveraging Langchain, ChromaDB, and Llama3 as the LLM. To evaluate the system's performance, we utilized the EU AI Act from 2023. The results demonstrated that the RAG model delivers accurate answers to questions posed about the Act.
+Technical Stack
+Language: Python 3.10+
 
-**Future Work** 
+LLM: Meta Llama 3
 
-To further enhance the solution, we will focus on refining the RAG implementation. This will involve optimizing the document embeddings and exploring the use of more intricate RAG architectures.
+Framework: LangChain
 
----
-**META LLAMA3 GENAI Real World UseCases End To End Implementation Guides**
+Vector Database: ChromaDB
 
-1. Efficiently fine-tune Llama 3 with PyTorch FSDP and Q-Lora : [👉Implementation Guide▶️](https://github.com/GURPREETKAURJETHRA/Meta-LLAMA3-GenAI-UseCases-End-To-End-Implementation-Guides/blob/main/GENAI_NOTEBOOKS/fsdp-qlora-distributed-llama3.ipynb)
+Tokenization: Tiktoken
 
-2. Deploy Llama 3 on Amazon SageMaker : [👉Implementation Guide▶️](https://github.com/GURPREETKAURJETHRA/Meta-LLAMA3-GenAI-UseCases-End-To-End-Implementation-Guides/blob/main/GENAI_NOTEBOOKS/deploy-llama3.ipynb)
+Project Structure
+main.py: The entry point for the application, coordinating retrieval and generation.
 
-3. RAG using Llama3, Langchain and ChromaDB : [👉Implementation Guide 1▶️](https://github.com/GURPREETKAURJETHRA/Meta-LLAMA3-GenAI-UseCases-End-To-End-Implementation-Guides/blob/main/GENAI_NOTEBOOKS/rag-using-llama3-langchain-and-chromadb.ipynb)
+chroma_db/: Local directory containing the persistent vector embeddings.
 
-4. Prompting Llama 3 like a Pro : [👉Implementation Guide▶️](https://github.com/GURPREETKAURJETHRA/Meta-LLAMA3-GenAI-UseCases-End-To-End-Implementation-Guides/blob/main/GENAI_NOTEBOOKS/prompting-llama-3-like-a-pro.ipynb)
+docs/: Knowledge base directory for ingestion (Git-ignored for privacy).
 
-5. Test Llama3 with some Math Questions : [👉Implementation Guide▶️](https://github.com/GURPREETKAURJETHRA/Meta-LLAMA3-GenAI-UseCases-End-To-End-Implementation-Guides/blob/main/GENAI_NOTEBOOKS/test-llama3-with-some-math-questions.ipynb)
+ai_env/: Isolated virtual environment for dependency management.
 
-6. Llama3 please write code for me : [👉Implementation Guide▶️](https://github.com/GURPREETKAURJETHRA/Meta-LLAMA3-GenAI-UseCases-End-To-End-Implementation-Guides/blob/main/GENAI_NOTEBOOKS/llama3-please-write-code-for-me.ipynb)
+.gitignore: Strict configuration to prevent accidental exposure of private datasets or local environments.
 
-7. Run LLAMA-3 70B LLM with NVIDIA endpoints on Amazing Streamlit UI : [👉Implementation Guide▶️](https://github.com/GURPREETKAURJETHRA/LLAMA3-70B-LLM-with-NVIDIA)
+Implementation Guide
+Prerequisites
+Ollama installed and running locally.
 
-8. Llama 3 ORPO Fine Tuning : [👉Implementation Guide▶️](https://github.com/GURPREETKAURJETHRA/Llama-3-ORPO-Fine-Tuning)
+The Llama3 model pulled: ollama pull llama3.
 
-9. Meta's LLaMA3-Quantization : [👉Implementation Guide▶️](https://github.com/GURPREETKAURJETHRA/LLaMA3-Quantization)
+Setup
+Clone the repository to your local directory.
 
-10. Finetune Llama3 using QLoRA : [👉Implementation Guide▶️](https://github.com/GURPREETKAURJETHRA/Meta-LLAMA3-GenAI-UseCases-End-To-End-Implementation-Guides/blob/main/GENAI_NOTEBOOKS/finetune-llama3-using-qlora.ipynb)
+Initialize and activate the virtual environment: python -m venv ai_env.
 
-11. Llama3 Qlora Inference : [👉Implementation Guide▶️](https://github.com/GURPREETKAURJETHRA/Meta-LLAMA3-GenAI-UseCases-End-To-End-Implementation-Guides/blob/main/GENAI_NOTEBOOKS/llama3-qlora-inference.ipynb)
+Install the required dependencies: pip install -r requirements.txt.
 
-12. Beam_Llama3-8B-finetune_task : [👉Implementation Guide▶️](https://github.com/GURPREETKAURJETHRA/Meta-LLAMA3-GenAI-UseCases-End-To-End-Implementation-Guides/blob/main/GENAI_NOTEBOOKS/Beam_Llama3-8B-finetune_task.py)
+Place private source files in the /docs directory.
 
-13. Llama-3 Finetuning on custom dataset with Unsloth : [👉Implementation Guide▶️](https://github.com/GURPREETKAURJETHRA/Meta-LLAMA3-GenAI-UseCases-End-To-End-Implementation-Guides/blob/main/GENAI_NOTEBOOKS/Llama-3_Finetuning_on_custom_dataset_with_unsloth.ipynb)
+Execute the pipeline: python main.py.
 
-14. RAG using  Llama3, Ollama and ChromaDB : [👉Implementation Guide▶️](https://github.com/GURPREETKAURJETHRA/Meta-LLAMA3-GenAI-UseCases-End-To-End-Implementation-Guides/blob/main/GENAI_NOTEBOOKS/ollama_llama_chroma_rag.ipynb)
-    
-15. Llama3 Usecases: [👉Implementation Guide▶️](https://github.com/GURPREETKAURJETHRA/Meta-LLAMA3-GenAI-UseCases-End-To-End-Implementation-Guides)
+Future Development
+Implementation of advanced RAG techniques, including re-ranking and hybrid search.
 
-16. RAG using Ro-LLM, Langchain and ChromaDB : [👉Implementation Guide▶️](https://github.com/GURPREETKAURJETHRA/RAG-using-Ro-LLM-Langchain-and-ChromaDB)
----
+Optimization of embedding strategies for massive technical codebases.
 
-#### **If you like this LLM Project do drop ⭐ to this repo**
-#### Follow me on [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/gurpreetkaurjethra/) &nbsp; [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/GURPREETKAURJETHRA/)
-
----
+Integration of a structured Web UI for improved user interaction.
