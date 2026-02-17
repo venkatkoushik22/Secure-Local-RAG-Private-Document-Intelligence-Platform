@@ -1,4 +1,4 @@
-# 🌟RAG using Llama3, Langchain and ChromaDB💎
+# RAG using Llama3, Langchain and ChromaDB
 RAG using Llama3, Langchain and ChromaDB
 
 ## Objective 🎯
@@ -14,7 +14,7 @@ This project utilizes Llama3 Langchain and ChromaDB to establish a Retrieval Aug
 * **ChromaDB:** Vector database
 * **RAG:** Retrieval Augmented Generation (see below for more details)
 
-### Model Details 🌟
+### Model Details 
 
 * **Model:** Llama 3
 * **Variation:** 8b-chat-hf (8b: 8 Billion parameters; hf: HuggingFace)
@@ -24,16 +24,16 @@ This project utilizes Llama3 Langchain and ChromaDB to establish a Retrieval Aug
 The pre-trained Llama3 model is fine-tuned with over 15 Trillion tokens and boasts 8 to 70 Billion parameters, making it one of the most powerful open-source models available. It offers significant advancements over the previous Llama2 model.
 
 
-## Conclusions 💯🔥
+## Conclusions 
 
 This project successfully implemented a Retrieval Augmented Generation (RAG) solution by leveraging Langchain, ChromaDB, and Llama3 as the LLM. To evaluate the system's performance, we utilized the EU AI Act from 2023. The results demonstrated that the RAG model delivers accurate answers to questions posed about the Act.
 
-**Future Work** ⚡✨
+**Future Work** 
 
 To further enhance the solution, we will focus on refining the RAG implementation. This will involve optimizing the document embeddings and exploring the use of more intricate RAG architectures.
 
 ---
-**💎🌟META LLAMA3 GENAI Real World UseCases End To End Implementation Guides📝📚⚡**
+**META LLAMA3 GENAI Real World UseCases End To End Implementation Guides**
 
 1. Efficiently fine-tune Llama 3 with PyTorch FSDP and Q-Lora : [👉Implementation Guide▶️](https://github.com/GURPREETKAURJETHRA/Meta-LLAMA3-GenAI-UseCases-End-To-End-Implementation-Guides/blob/main/GENAI_NOTEBOOKS/fsdp-qlora-distributed-llama3.ipynb)
 
