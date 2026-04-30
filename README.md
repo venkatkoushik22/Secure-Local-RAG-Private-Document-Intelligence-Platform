@@ -115,17 +115,6 @@ Easy to extend with different embeddings, LLMs, or vector stores
 * 🌐 Deployment as a Streamlit / FastAPI web app
 * 🔐 Secure enterprise-grade document handling
 
----
-
-## 💡 Why This Project Matters
-
-This project demonstrates real-world GenAI engineering:
-
-* Combines **LLMs + Vector Databases + Orchestration frameworks**
-* Solves the **“LLM knowledge cutoff” problem**
-* Represents modern **AI system design used in production RAG pipelines**
-
----
 
 ## 👨‍💻 Author
 
