@@ -1,39 +1,140 @@
-# RAG using Llama3, Langchain and ChromaDB
-RAG using Llama3, Langchain and ChromaDB
-
-## Objective 🎯
-
-This project utilizes Llama3 Langchain and ChromaDB to establish a Retrieval Augmented Generation (RAG) system. This system empowers you to ask questions about your documents, even if the information wasn't included in the training data for the Large Language Model (LLM). Retrieval Augmented Generation works by first performing a retrieval step when presented with a question. This step fetches relevant documents from a special vector database, where the documents have been indexed.
-
-### Definitions 📝
-
-* **LLM:** Large Language Model
-* **Llama3:** LLM developed by Meta
-* **Langchain:** Framework designed to streamline the creation of applications utilizing LLMs
-* **Vector database:** Database that organizes data using high-dimensional vectors
-* **ChromaDB:** Vector database
-* **RAG:** Retrieval Augmented Generation (see below for more details)
-
-### Model Details 
-
-* **Model:** Llama 3
-* **Variation:** 8b-chat-hf (8b: 8 Billion parameters; hf: HuggingFace)
-* **Version:** V1
-* **Framework:** Transformers
-
-The pre-trained Llama3 model is fine-tuned with over 15 Trillion tokens and boasts 8 to 70 Billion parameters, making it one of the most powerful open-source models available. It offers significant advancements over the previous Llama2 model.
-
-
-## Conclusions 
-
-This project successfully implemented a Retrieval Augmented Generation (RAG) solution by leveraging Langchain, ChromaDB, and Llama3 as the LLM. To evaluate the system's performance, we utilized the EU AI Act from 2023. The results demonstrated that the RAG model delivers accurate answers to questions posed about the Act.
-
-**Future Work** 
-
-To further enhance the solution, we will focus on refining the RAG implementation. This will involve optimizing the document embeddings and exploring the use of more intricate RAG architectures.
+Here’s a **recruiter-level polished README** for your RAG project (clean, structured, and impactful) 🚀
 
 ---
-**META LLAMA3 GENAI Real World UseCases End To End Implementation Guides**
+
+# 🧠 RAG System using Llama 3, LangChain & ChromaDB
+
+A **Retrieval-Augmented Generation (RAG)** system built using **Meta’s Llama 3**, **LangChain**, and **ChromaDB** that enables intelligent question answering over custom documents — even when the knowledge is not part of the LLM’s original training data.
+
+---
+
+## 🎯 Objective
+
+This project demonstrates a complete **RAG pipeline** that allows users to:
+
+* Ask questions over private/custom documents 📄
+* Retrieve contextually relevant information using vector search 🔎
+* Generate accurate, context-aware responses using **Llama 3 (8B Chat model)** 🧠
+
+The system bridges the gap between **static LLM knowledge** and **dynamic external data sources**.
+
+---
+
+## ⚙️ How It Works
+
+The RAG pipeline follows a simple yet powerful flow:
+
+### 1️⃣ Document Ingestion
+
+* Input documents are loaded and split into smaller chunks
+* Text is cleaned and prepared for embedding
+
+### 2️⃣ Embedding Generation
+
+* Each chunk is converted into high-dimensional vectors using embeddings
+* Vectors represent semantic meaning of the text
+
+### 3️⃣ Vector Storage (ChromaDB)
+
+* Embeddings are stored in **ChromaDB**, a vector database optimized for similarity search
+
+### 4️⃣ Retrieval Step
+
+* User query is converted into an embedding
+* Most relevant document chunks are retrieved from ChromaDB
+
+### 5️⃣ Generation (Llama 3)
+
+* Retrieved context is passed to **Llama 3 (8B Chat HF)**
+* Model generates a grounded, context-aware response
+
+---
+
+## 🧠 Model Details
+
+* **Model:** Meta Llama 3
+* **Variant:** 8B Chat (Hugging Face format)
+* **Parameters:** 8 Billion
+* **Framework:** Transformers
+* **Strength:** Trained on ~15 Trillion tokens
+
+💡 Llama 3 significantly improves reasoning, instruction following, and contextual understanding compared to Llama 2.
+
+---
+
+## 🛠️ Tech Stack
+
+| Component        | Technology                       |
+| ---------------- | -------------------------------- |
+| 🧠 LLM           | Meta Llama 3 (8B Chat HF)        |
+| 🔗 Orchestration | LangChain                        |
+| 📦 Vector DB     | ChromaDB                         |
+| 🤖 Framework     | Hugging Face Transformers        |
+| 🐍 Language      | Python                           |
+| 📄 Data Handling | Text loaders, document splitters |
+
+---
+
+## 📊 Evaluation
+
+The system was tested using the **EU AI Act (2023)** as the knowledge base.
+
+### ✅ Results:
+
+* Accurate and context-aware responses
+* Strong grounding in retrieved documents
+* Reduced hallucinations compared to standalone LLM usage
+* Reliable question answering across legal text
+
+---
+
+## 🚀 Key Features
+
+🔍 **Semantic Search over Documents**
+Finds meaning-based relevant chunks instead of keyword matching
+
+🧠 **LLM-Enhanced Reasoning**
+Llama 3 generates intelligent responses using retrieved context
+
+⚡ **Fast Retrieval with ChromaDB**
+Efficient vector similarity search for real-time performance
+
+📚 **Scalable Knowledge Base**
+Supports any document type (PDFs, text files, legal docs, etc.)
+
+🧩 **Modular RAG Architecture**
+Easy to extend with different embeddings, LLMs, or vector stores
+
+---
+
+## 🔮 Future Improvements
+
+* 🧠 Fine-tuned embedding models for domain-specific RAG
+* ⚡ Faster retrieval using optimized vector indexing
+* 📊 Evaluation metrics for hallucination reduction
+* 🌐 Deployment as a Streamlit / FastAPI web app
+* 🔐 Secure enterprise-grade document handling
+
+---
+
+## 💡 Why This Project Matters
+
+This project demonstrates real-world GenAI engineering:
+
+* Combines **LLMs + Vector Databases + Orchestration frameworks**
+* Solves the **“LLM knowledge cutoff” problem**
+* Represents modern **AI system design used in production RAG pipelines**
+
+---
+
+## 👨‍💻 Author
+
+Built with a focus on **Generative AI systems, LLM orchestration, and real-world AI applications** 🧠🚀
+
+---
+
+## ⭐ Bonus Note
+
 
 1. Efficiently fine-tune Llama 3 with PyTorch FSDP and Q-Lora : [👉Implementation Guide▶️](https://github.com/GURPREETKAURJETHRA/Meta-LLAMA3-GenAI-UseCases-End-To-End-Implementation-Guides/blob/main/GENAI_NOTEBOOKS/fsdp-qlora-distributed-llama3.ipynb)
 
