@@ -1,6 +1,4 @@
-Here’s a **recruiter-level polished README** for your RAG project (clean, structured, and impactful) 🚀
 
----
 
 # 🧠 RAG System using Llama 3, LangChain & ChromaDB
 
