@@ -55,7 +55,18 @@ flowchart LR
 
 ## Evaluation
 
-The system was tested using the EU AI Act as the document knowledge base. I compared responses generated with retrieved context against responses generated without retrieval. The RAG-based approach produced more grounded answers because the model had access to relevant source text before generating a response.
+The system was tested using the EU AI Act as the document knowledge base. I compared responses generated with retrieved context against responses generated without retrieval, focusing on whether the answer was grounded in the source document.
+
+The RAG-based approach reduced unsupported or hallucinated responses by 34% compared to standalone prompting. This improvement came from retrieving relevant source chunks before generation, which helped the model answer from provided context instead of relying only on pre-trained knowledge.
+
+## Evaluation Approach
+
+* Created a set of test questions based on the source document
+* Compared standalone LLM responses against RAG-based responses
+* Checked whether answers were supported by retrieved context
+* Tracked failure cases where the model missed, guessed, or added unsupported information
+* Used the results to refine chunking and retrieval quality
+
 
 ## Key Features
 
@@ -95,19 +106,6 @@ Built by Venkat Koushik Pillala as part of my work in Generative AI, LLM orchest
 
 ---
 
-## Evaluation
-
-The system was tested using the EU AI Act as the document knowledge base. I compared responses generated with retrieved context against responses generated without retrieval, focusing on whether the answer was grounded in the source document.
-
-The RAG-based approach reduced unsupported or hallucinated responses by 34% compared to standalone prompting. This improvement came from retrieving relevant source chunks before generation, which helped the model answer from provided context instead of relying only on pre-trained knowledge.
-
-## Evaluation Approach
-
-* Created a set of test questions based on the source document
-* Compared standalone LLM responses against RAG-based responses
-* Checked whether answers were supported by retrieved context
-* Tracked failure cases where the model missed, guessed, or added unsupported information
-* Used the results to refine chunking and retrieval quality
 
 
 ##  Bonus Note
