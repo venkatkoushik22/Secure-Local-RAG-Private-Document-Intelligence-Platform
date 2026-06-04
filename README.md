@@ -4,6 +4,10 @@
 
 This project is a Retrieval-Augmented Generation system that enables question answering over custom documents using Llama 3, LangChain, and ChromaDB. The goal is to improve response grounding by retrieving relevant document context before generating an answer, instead of relying only on the model’s pre-trained knowledge.
 
+## Live Demo
+
+[Try the Hugging Face Space](https://huggingface.co/spaces/Venkatkoushik22/secure-local-rag-platform)
+
 ## Problem
 
 Large language models can generate confident responses even when they do not have access to the right information. This project addresses that limitation by connecting the model to an external knowledge source and using retrieval to provide relevant context at query time.
